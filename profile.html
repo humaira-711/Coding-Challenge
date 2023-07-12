@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* For navbar style */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #57bad6;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: #eff0eb;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.container {
+  padding: 16px;
+  background-color: white;
+  text-align: center;
+}
+.editbtn {
+  background-color: #ddc026;
+  color: white;
+  padding: 13px 17px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.editbtn:hover {
+  opacity: 1;
+}
+.savebtn {
+  background-color: #2274ae;
+  color: white;
+  padding: 13px 17px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.savebtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('home') }}" style="font-family: Arial, Helvetica, sans-serif;"><strong>LOGOUT</strong></a>
+        </li>
+      </ul>
+<form action="{{ url_for('viewUser') }}" method="post">
+    <h1 style="text-align: center;">User Profile</h1>
+    <h3 style="text-align: center;">Name: Alia Maisarah</h3>
+    <h3 style="text-align: center;">Email: alia@gmail.com</h3>
+    <p style="text-align: center;">This is about me section. Please update your profile information.</p>
+    <div class="container">
+    <textarea placeholder="Write about yourself..." id="message" name="message" rows="20" cols="100"></textarea><br><br>
+    <button type="submit" class="editbtn">Edit</button>
+    <button type="submit" class="savebtn">Save</button>
+    </div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* For navbar style */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #57bad6;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: #eff0eb;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.container2 {
+  padding: 25px;
+  border: 1px solid  #eaeaea; 
+  width: 45%;
+  position: absolute;
+  left: 25%;
+  top: 60%;
+  box-shadow: 10px 10px 5px#d8d8d8;
+}
+
+/* For register style */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 15px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  border-radius: 15px;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: #38a0bc;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('viewlogin') }}" style="font-family: Arial, Helvetica, sans-serif;"><strong>LOGIN</strong></a>
+        </li>
+      </ul>
+<form action="{{ url_for('viewlogin') }}" method="POST" onsubmit="return validateForm()">
+  <div class="container">
+    <h1 style="text-align: center;">Register Form</h1>
+    <p style="text-align: center;">Please fill in this form to create an account.</p>
+    <hr>
+    <label for="name"><b>Name</b></label><br>
+	<input type="text" id="name" name="name" placeholder="Enter Name" required><br>
+    <label for="email"><b>Email</b></label>
+
+    <input type="text" placeholder="Enter an email" name="email" id="email" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter password" name="password" id="password" required>
+
+    <label for="pass_repeat"><b>Reconfirm Password</b></label>
+    <input type="password" placeholder="Reconfirm your password" name="pass_repeat" id="pass_repeat" required>
+    <hr>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="{{ url_for('viewlogin') }}">Sign in</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
+<script>
+  // JavaScript code here
+  function validateForm() {
+      var password = document.getElementById("password").value;
+      var passRepeat = document.getElementById("pass_repeat").value;
+
+      if (password !== passRepeat) {
+          alert("Passwords do not match!,check  your password or reconfirm password.");
+          return false;
+      }
+  }
+</script>
